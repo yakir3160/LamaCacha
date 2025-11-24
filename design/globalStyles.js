@@ -13,7 +13,7 @@ export const globalStyle = StyleSheet.create({
        flex:1,
         paddingTop: 20,
         padding: 20,
-        borderRadius: 15,
+        borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: appColors.primary
@@ -33,5 +33,20 @@ export const globalStyle = StyleSheet.create({
               fontSize: 18,
         }
 
+    },
+    form : {
+        width: '100%',
+        marginTop: 20 ,
+        borderRadius: 15,
+        padding: 10,
+        backgroundColor: '#fff'
+    },
+    input: {
+        borderColor: 'gray',
+        borderWidth: 2,
+        borderRadius: 15,
+        padding: 10,
+        width: '100%',
+        marginBottom: 10,
     }
 })
