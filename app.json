@@ -5,11 +5,11 @@
     "scheme": "lamacacha",
     "web": {
       "bundler": "metro",
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/Gemini_Generated_Image_x1qvltx1qvltx1qv.png"
     },
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Gemini_Generated_Image_x1qvltx1qv.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -18,11 +18,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "icon": "./assets/Gemini_Generated_Image_x1qvltx1qvltx1qv.png"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/Gemini_Generated_Image_x1qvltx1qvltx1qv.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
