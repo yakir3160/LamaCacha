@@ -1,6 +1,6 @@
 
 import { View, Dimensions, Text } from 'react-native';
-import { globalStyle } from '../../design/globalStyles';
+import { globalStyle } from '../../../design/globalStyles';
 const { width, height } = Dimensions.get('window')
 
 export default function Search() {
