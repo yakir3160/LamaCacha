@@ -8,7 +8,7 @@ export default function SearchLayout() {
       <Stack.Screen
         name="index"
         options={{
-          title: 'Search',
+          title: 'Products',
           headerLargeTitle: true,
           headerTransparent: true,
           headerBlurEffect: 'regular',

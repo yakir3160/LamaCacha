@@ -1,6 +1,6 @@
 
 import { View, Dimensions, Text, TouchableOpacity, TextInput, ScrollView } from 'react-native';
-import { globalStyle } from '../../../design/globalStyles';
+import { globalStyle } from '../../../../design/globalStyles';
 import { useState } from 'react';
 import { useRouter } from 'expo-router';
 

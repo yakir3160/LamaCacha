@@ -1,6 +1,6 @@
 
 import { View, Dimensions, Text ,TouchableOpacity} from 'react-native';
-import { globalStyle } from '../../../design/globalStyles';
+import { globalStyle } from '../../../../design/globalStyles.js';
 const { width, height } = Dimensions.get('window')
 import { useRouter } from 'expo-router';
 
@@ -13,7 +13,7 @@ export default function UserInfo() {
             <Text>Name: John Doe</Text>
             <Text>Email: johndoe@example.com</Text>
             <Text>Phone: (123) 456-7890</Text>
-            <TouchableOpacity style={styles.button}><Text style={styles.buttonText} onPress={() => {router.push('/settnigs/paymentInfo') }}>Payment Information</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button}><Text style={styles.buttonText} onPress={() => {router.push('/settings/userInfo/paymentInfo') }}>Payment Information</Text></TouchableOpacity>
 
         </View>
     );

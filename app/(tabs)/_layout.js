@@ -14,14 +14,14 @@ export default function Layout() {
           android: <Icon src={<VectorIcon family={Ionicons} name="home" />} />,
         })}
       </NativeTabs.Trigger>
-      
-      {/* Search Tab - defined with specific role */}
-      <NativeTabs.Trigger name="search" role="search">
-        <Label>Search</Label>
+
+      <NativeTabs.Trigger name="products" >
+        <Label>Products</Label>
         {Platform.select({
-          ios: <Icon sf="magnifyingglass" />,
-          android: <Icon src={<VectorIcon family={Ionicons} name="search" />} />,
+          ios: <Icon sf="bag.fill" />,
+          android: <Icon src={<VectorIcon family={Ionicons} name="apps-outline" />} />,
         })}
+       
       </NativeTabs.Trigger>
       
       {/* Settings Tab - Uses SF Symbol on iOS, Ionicons on Android */}
