@@ -23,6 +23,13 @@ export default function Layout() {
         })}
        
       </NativeTabs.Trigger>
+      <NativeTabs.Trigger name='users'>
+        <Label>Users</Label>
+       {Platform.select({
+          ios: <Icon sf="person.2.fill" />,
+          android: <Icon src={<VectorIcon family={Ionicons} name="people" />} />,
+        })}
+      </NativeTabs.Trigger>
       
       {/* Settings Tab - Uses SF Symbol on iOS, Ionicons on Android */}
       <NativeTabs.Trigger name="settings">
