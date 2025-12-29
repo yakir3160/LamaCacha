@@ -6,7 +6,7 @@ import {MapView, Marker} from 'react-native-maps';
 
 
 
-const mapWindow = ({ latitude, longitude }) => {
+export const mapWindow = ({ latitude, longitude }) => {
     return (
         <MapView
             style={styles.map}
@@ -31,4 +31,4 @@ const styles = {
         overflow: 'hidden',
     },
 };
-export default mapWindow;
+

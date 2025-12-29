@@ -2,6 +2,7 @@ import * as Location from 'expo-location';
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { globalStyle } from '../../../design/globalStyles.js';
+import { MapWindow } from '../../../components/device/mapWindow.js';
 
 
 
@@ -66,7 +67,7 @@ const LocationScreen = () => {
                                 <Text style={styles.label}>Postal Code:</Text>
                                 <Text style={styles.value}>{address.postalCode}</Text>
                             </View>
-                            <mapWindow latitude={location.coords.latitude} longitude={location.coords.longitude} />
+                            <MapWindow latitude={location.coords.latitude} longitude={location.coords.longitude} />
                         </>
                     ) : (
                         <Text style={globalStyle.text}>Fetching location...</Text>
