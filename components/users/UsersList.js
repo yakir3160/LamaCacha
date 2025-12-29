@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FlatList, Text, View } from 'react-native';
-import  UserPreview from './UserPreview.js';
+import  UserPreview from './userPreview.js';
 import { getUsers } from '../../services/users.service';
 import { appColors } from '../../design/colors.js';
 import Loader from '../reusables/Loader.js';

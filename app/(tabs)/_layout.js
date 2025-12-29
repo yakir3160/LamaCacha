@@ -30,6 +30,12 @@ export default function Layout() {
           android: <Icon src={<VectorIcon family={Ionicons} name="people" />} />,
         })}
       </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="device">
+        {Platform.select({
+          ios: <Icon sf="iphone.homebutton" />,
+          android: <Icon src={<VectorIcon family={Ionicons} name="phone-portrait-outline" />} />,
+        })}
+      </NativeTabs.Trigger> 
       
       {/* Settings Tab - Uses SF Symbol on iOS, Ionicons on Android */}
       <NativeTabs.Trigger name="settings">
