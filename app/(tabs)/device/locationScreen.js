@@ -66,6 +66,7 @@ const LocationScreen = () => {
                                 <Text style={styles.label}>Postal Code:</Text>
                                 <Text style={styles.value}>{address.postalCode}</Text>
                             </View>
+                            <mapWindow latitude={location.coords.latitude} longitude={location.coords.longitude} />
                         </>
                     ) : (
                         <Text style={globalStyle.text}>Fetching location...</Text>
