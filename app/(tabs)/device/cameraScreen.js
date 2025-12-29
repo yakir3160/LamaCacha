@@ -23,8 +23,7 @@ const CameraScreen = () => {
     };
     const takePhoto = async () => {
         try {
-            await askPermission();
-        
+     
             let result = await ImagePicker.launchCameraAsync({
                 allowsEditing: true,
                 aspect: [4, 3],
@@ -40,7 +39,6 @@ const CameraScreen = () => {
     };
     const pickImage = async () => {
         try {
-            await askPermission();
             let result = await ImagePicker.launchImageLibraryAsync({
                 mediaTypes: ImagePicker.MediaTypeOptions.All,
                 allowsEditing: true,

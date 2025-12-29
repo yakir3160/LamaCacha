@@ -11,6 +11,7 @@ const LocationScreen = () => {
 
     const [location, setLocation] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
+    const [address, setAddress] = useState(null);
 
     useEffect(() => {
         (async () => {
@@ -21,8 +22,11 @@ const LocationScreen = () => {
                     return;
                 }
 
+
                 const location = await Location.getCurrentPositionAsync({});
+                let address = await Location.reverseGeocodeAsync(location.coords);
                 setLocation(location);
+                setAddress(address[0]);
             } catch (error) {
                 setErrorMsg('Error fetching location');
             }
@@ -36,7 +40,7 @@ const LocationScreen = () => {
                 <Text style={globalStyle.errorText}>{errorMsg}</Text>
             ) : (
                 <Text style={globalStyle.text}>
-                    {location ? JSON.stringify(location) : 'Fetching location...'}
+                    {location ? address : 'Fetching location...'}
                 </Text>
             )}
         </View>

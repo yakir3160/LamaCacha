@@ -15,8 +15,6 @@ const UsersList = () => {
         setLoading(true)
         try {
             const data = await getUsers()
-            console.log('Users data received:', data)
-            console.log('Number of users:', data?.length)
             setUsers(data)
         } catch (error) {
             console.error('Error loading users:', error)
