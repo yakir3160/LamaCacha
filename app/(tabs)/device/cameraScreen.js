@@ -1,11 +1,13 @@
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
-import { View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Image, Text, StyleSheet, TextInput } from 'react-native';
 import { globalStyle } from '../../../design/globalStyles.js';
+import ShareButton from '../../../components/device/shareButton.js'
 
 
 const CameraScreen = () => {
     const [image, setImage] = useState(null);
+    const [link, setLink] = useState('');
     const [permissionStatus, setPermissionStatus] = useState(null);
     const [error, setError] = useState(null);
 
@@ -53,6 +55,7 @@ const CameraScreen = () => {
             setError("Error picking image");
         }
     };
+
     return (
         <View style={globalStyle.container}>
             <View style={styles.headerContainer}>
@@ -72,6 +75,20 @@ const CameraScreen = () => {
                         <Text style={styles.placeholderText}>No Image Selected</Text>
                     </View>
                 )}
+                
+                <ShareButton resource={image}/>
+            </View>
+
+            <View style={styles.linkContainer}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Enter link"
+                    value={link}
+                    onChangeText={setLink}
+                />
+                {link ? (
+                    <ShareButton resource={link}/>
+                ) : null}
             </View>
             
             {error && <Text style={globalStyle.errorText}>{error}</Text>}
@@ -129,6 +146,20 @@ const styles = StyleSheet.create({
     placeholderText: {
         color: '#999',
         fontSize: 16,
+    },
+    linkContainer: {
+        width: '100%',
+        padding: 20,
+        alignItems: 'center',
+    },
+    input: {
+        width: '100%',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        borderRadius: 8,
+        marginBottom: 10,
+        backgroundColor: '#fff',
     }
 });
 
