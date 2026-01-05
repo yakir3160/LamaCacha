@@ -1,27 +1,49 @@
 
 
-import { Picker } from '@react-native-picker/picker';
-import { View } from 'react-native';
-import { globalStyle } from '../../design/globalStyles';
+import { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
 
+const styles = StyleSheet.create({
+    container: {
+        marginBottom: 10,
+        width: '100%',
+        zIndex: 1000, // חשוב כדי שהדרופדאון יופיע מעל אלמנטים אחרים
+    },
+    dropdown: {
+        borderColor: 'gray',
+        borderWidth: 2,
+        borderRadius: 25,
+        backgroundColor: '#fff',
+        height: 50,
+    },
+    dropdownContainer: {
+        borderColor: 'gray',
+        borderWidth: 2,
+        borderRadius: 15,
+        backgroundColor: '#fff',
+    }
+});
 
 export const SelectInput = ({ selectedValue, setSelectedValue, values }) => {
+    const [open, setOpen] = useState(false);
+
     return (
-        <View style={globalStyle.input}>
-            <Picker
-                selectedValue={selectedValue}
-                onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                style={{
-                    width: '100%',
-                    backgroundColor: '#fff',
-                    borderRadius: 10,
+        <View style={[styles.container, { zIndex: open ? 1000 : 1 }]}>
+            <DropDownPicker
+                open={open}
+                value={selectedValue}
+                items={values}
+                setOpen={setOpen}
+                setValue={setSelectedValue}
+                placeholder="בחר אופציה..."
+                style={styles.dropdown}
+                dropDownContainerStyle={styles.dropdownContainer}
+                listMode="SCROLLVIEW"
+                scrollViewProps={{
+                    nestedScrollEnabled: true,
                 }}
-            >
-                <Picker.Item label="Select an option..." value="" />
-                {values.map((val, index) => (
-                    <Picker.Item key={index} label={val.label} value={val.value} />
-                ))}
-            </Picker>
+            />
         </View>
     );
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { TextInput, View,Switch ,Text,TouchableOpacity} from 'react-native';
+import { TextInput, View,Switch ,Text,TouchableOpacity, Keyboard, Platform} from 'react-native';
 import { CustomButton } from '../reusables/CustomButton.js';
 import { globalStyle } from '../../design/globalStyles.js';
+import { KeyboardDoneBar } from '../reusables/KeyboardDoneBar.js';
 
 import { SelectInput } from '../reusables/SelectInput.js';
 import * as Yup from 'yup';
@@ -32,6 +33,9 @@ export const FormExample = () => {
                 autoCapitalize='words'
                 onChangeText={text => setName(text)}
                 style={globalStyle.input}
+                returnKeyType="next"
+                onSubmitEditing={Keyboard.dismiss}
+                inputAccessoryViewID="doneToolbar"
             />
             <TextInput
                 placeholder="Enter your email"
@@ -40,6 +44,9 @@ export const FormExample = () => {
                 autoCapitalize='none'
                 onChangeText={text => setEmail(text)}
                 style={globalStyle.input}
+                returnKeyType="next"
+                onSubmitEditing={Keyboard.dismiss}
+                inputAccessoryViewID="doneToolbar"
             />
             <SelectInput
                 selectedValue={selectedValue}
@@ -55,13 +62,16 @@ export const FormExample = () => {
                 placeholder="Password"
                 secureTextEntry={true}
                 style={globalStyle.input}
+                returnKeyType="done"
+                onSubmitEditing={Keyboard.dismiss}
+                inputAccessoryViewID="doneToolbar"
             />
             <View style={{ flexDirection: 'row', alignItems: 'center' , marginTop: 10 ,backgroundColor:'#f0f0f0',padding:10,borderRadius:10}}>
                 <Switch
                     value={isEnabled}
                     onValueChange={toggleSwitch}
                     style={{ transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }] }}
-                    trackColor={{ false: "#767577", true: "#04b36e" }}
+                    trackColor={{ false: "#767577", true: "#01c577ff" }}
                     thumbColor={isEnabled ? "#f4f3f4" : "#f4f3f4"}
                 />
                 <Text style={{ marginLeft: 10, fontSize: 16, color: '#393E41' }}>
@@ -70,6 +80,7 @@ export const FormExample = () => {
             </View>
             <CustomButton onPress={() => {}} text="Submit" />
             <CustomButton onPress={() => {alert('Delete')}} text="Delete" color="#ff0000" textColor="#000" />
+            {Platform.OS === 'ios' && <KeyboardDoneBar />}
         </View>
     )
 };

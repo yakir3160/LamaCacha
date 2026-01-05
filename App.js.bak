@@ -1,5 +1,5 @@
 
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { globalStyle } from './design/globalStyles.js';
 
@@ -12,11 +12,13 @@ const { width, height } = Dimensions.get('window')
 export default function App() {
   return (
     <SafeAreaView style={globalStyle.container}>
-      <View style={{ flex: 1,width:width }}>
-       <Header/>
-       <Body/>
-       <Footer/>
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={{ flex: 1,width:width }}>
+         <Header/>
+         <Body/>
+         <Footer/>
+        </View>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
 
   );
